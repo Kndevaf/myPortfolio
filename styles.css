@@ -25,6 +25,7 @@ body{
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}
 .brand h1{margin:0;font-size:1.45rem}
 .tagline{margin:0;color:var(--muted);font-size:0.8rem}
+.degree{margin:0;color:var(--muted);font-size:0.85rem}
 
 nav ul{list-style:none;margin:0;padding:0;display:flex;gap:0.5rem}
 nav a{color:var(--text);text-decoration:none;padding:0.45rem 0.7rem;border-radius:8px;font-weight:600}
@@ -37,6 +38,34 @@ main{padding:1rem 0}
 .about-container{display:flex;gap:1rem;align-items:center}
 .about-container img{width:240px;height:240px;object-fit:cover;border-radius:50%;flex:0 0 240px}
 .about-container p{margin:0;color:var(--muted);font-size:1rem}
+
+/* Project image styling */
+.project-figure{margin:1rem 0;text-align:center}
+.project-figure img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 8px 24px rgba(15,23,42,0.08)}
+.project-figure figcaption{font-size:0.9rem;color:var(--muted);margin-top:0.5rem}
+
+/* Lightbox styles */
+.lightbox-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 200ms ease,visibility 200ms}
+.lightbox-overlay.open{opacity:1;visibility:visible}
+.lightbox-overlay img{max-width:92%;max-height:92%;border-radius:6px;box-shadow:0 12px 36px rgba(0,0,0,0.6)}
+.lightbox-close{position:absolute;top:18px;right:18px;color:#fff;background:transparent;border:0;font-size:1.6rem;cursor:pointer}
+
+/* Quiz styles */
+.quiz-form{display:flex;flex-direction:column;gap:0.75rem}
+.quiz-question{border:1px solid rgba(15,23,42,0.04);padding:0.8rem;border-radius:8px}
+.quiz-question .q{margin:0 0 0.4rem 0}
+.quiz-question label{display:block;margin:0.2rem 0;color:var(--muted)}
+.quiz-question .explanation{margin-top:0.5rem;font-size:0.95rem}
+.quiz-actions{display:flex;gap:0.5rem;margin-top:0.5rem}
+.quiz-actions button{padding:0.45rem 0.8rem;border-radius:8px;border:1px solid rgba(15,23,42,0.08);background:#fff;cursor:pointer}
+#quizResult{margin-top:0.6rem;font-weight:600}
+
+/* Table styles */
+.table-responsive{overflow:auto}
+.types-table{width:100%;border-collapse:collapse}
+.types-table th,.types-table td{padding:0.6rem 0.75rem;text-align:left;border-bottom:1px solid rgba(15,23,42,0.06)}
+.types-table th{background:linear-gradient(180deg,rgba(0,0,0,0.02),transparent);font-weight:700}
+.types-table td{color:var(--muted)}
 
 .projects-list,.cert-list{padding-left:1.1rem;margin:0;color:var(--muted)}
 .projects-list li{margin:0.6rem 0}

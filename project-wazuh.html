@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Wazuh SIEM on Ubuntu — Project Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="brand">
+                <h1>🧠 Endpoint Threat Monitoring — Wazuh on Ubuntu</h1>
+                <p class="tagline">Wazuh SIEM implementation and incident detection</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="card">
+            <h2>Endpoint Threat Monitoring and Incident Detection using Wazuh SIEM on Ubuntu</h2>
+            <p class="muted"><strong>Executive summary:</strong> Implemented a single‑host Wazuh SIEM on Ubuntu integrated with the Elastic Stack to centralize log collection, detect threats, and provide real‑time alerting and visualizations. The deployment included Wazuh Manager, Wazuh Dashboard (Kibana), Filebeat for Elasticsearch integration, and a locally registered Wazuh agent. Custom detection rules and File Integrity Monitoring were configured to identify brute‑force attempts, suspicious file modifications, and rootkit indicators. Validation was completed with simulated attacks and log generation to confirm detection and alerting workflows.</p>
+
+            <h4>Key outcomes</h4>
+            <ul class="muted">
+                <li>Deployed and configured Wazuh Manager, Dashboard, Filebeat, and local agent on Ubuntu.</li>
+                <li>Implemented real‑time alerting and custom detection rules for brute‑force, FIM, and rootcheck events.</li>
+                <li>Built dashboard visualizations for alert trends, top sources, and FIM activity; exported actionable reports.</li>
+                <li>Validated detection with simulated SSH failures and file modification tests; documented mitigation steps.</li>
+            </ul>
+
+            <h4>Technologies</h4>
+            <p class="muted">Wazuh, Powershell, Ubuntu</p>
+
+            <h3>🎯 Objective</h3>
+            <p>To implement and configure a Security Information and Event Management (SIEM) solution using Wazuh on Ubuntu to monitor system logs, detect security threats, and perform real-time alerting. The project focuses on endpoint security, log analysis, and incident response.</p>
+
+            <h3>🧩 Project Environment</h3>
+            <table>
+                <tbody>
+                    <tr><th>Host System</th><td>Ubuntu (host machine)</td></tr>
+                    <tr><th>SIEM Tool</th><td>Wazuh (open-source SIEM and XDR)</td></tr>
+                    <tr><th>Elastic Stack</th><td>Elasticsearch, Logstash, Kibana (integrated via Wazuh)</td></tr>
+                    <tr><th>Monitored Device</th><td>Same host (localhost)</td></tr>
+                    <tr><th>Network</th><td>Local network (single node)</td></tr>
+                    <tr><th>Wazuh Version</th><td>4.x (example)</td></tr>
+                </tbody>
+            </table>
+
+            <h3>⚙️ Phase 1 — Installation & Setup</h3>
+            <ol>
+                <li>Install dependencies
+                    <pre><code>sudo apt update && sudo apt upgrade -y
+sudo apt install curl apt-transport-https lsb-release gnupg -y</code></pre>
+                </li>
+                <li>Add Wazuh repository
+                    <pre><code>curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | sudo apt-key add -
+echo "deb https://packages.wazuh.com/4.x/apt/ stable main" | sudo tee /etc/apt/sources.list.d/wazuh.list
+sudo apt update</code></pre>
+                </li>
+                <li>Install Wazuh manager
+                    <pre><code>sudo apt install wazuh-manager -y</code></pre>
+                </li>
+                <li>Install Filebeat
+                    <pre><code>sudo apt install filebeat -y</code></pre>
+                </li>
+                <li>Install Wazuh dashboard
+                    <pre><code>sudo apt install wazuh-dashboard -y
+sudo systemctl enable wazuh-dashboard
+sudo systemctl start wazuh-dashboard</code></pre>
+                </li>
+                <li>Access dashboard in browser: <code>https://&lt;your-ip&gt;:5601</code> (default admin/admin — change after setup)</li>
+            </ol>
+
+            <h3>🔍 Phase 2 — Configure Wazuh Agent (Host Monitoring)</h3>
+            <p>Since the manager and agent run on the same host, install and configure the agent:</p>
+            <pre><code>sudo apt install wazuh-agent -y
+sudo nano /var/ossec/etc/ossec.conf
+
+# set server address to 127.0.0.1
+&lt;server&gt;
+  &lt;address&gt;127.0.0.1&lt;/address&gt;
+&lt;/server&gt;
+
+sudo systemctl enable wazuh-agent
+sudo systemctl start wazuh-agent</code></pre>
+
+            <h3>🧾 Phase 3 — Log Collection & Analysis</h3>
+            <p>Wazuh will parse and analyze common logs such as:</p>
+            <ul>
+                <li>/var/log/auth.log — authentication attempts</li>
+                <li>/var/log/syslog — system activity</li>
+                <li>/var/log/dpkg.log — package installs</li>
+                <li>/var/log/ufw.log — firewall logs (if enabled)</li>
+            </ul>
+
+            <h3>🚨 Phase 4 — Threat Detection Rules & Alerts</h3>
+            <h4>A. Brute Force Detection</h4>
+            <p>Test by generating failed SSH logins: <code>ssh invalid@localhost</code>. Wazuh rule example: multiple failed login rule (high severity).</p>
+
+            <h4>B. File Integrity Monitoring (FIM)</h4>
+            <p>Enable syscheck in <code>/var/ossec/etc/ossec.conf</code> to monitor directories (e.g., /etc) and restart the manager to apply changes.</p>
+
+            <h4>C. Rootkit & Malware Detection</h4>
+            <p>Enable rootcheck to monitor for hidden processes and suspicious binaries.</p>
+
+            <h3>📊 Phase 5 — Dashboard & Visualization</h3>
+            <p>Use the Wazuh Dashboard (Kibana) to view alerts, FIM events, authentication trends, and to build visual panels for common metrics (top alert sources, failed logins, file changes).</p>
+
+            <h3>📸 Results (example screenshot)</h3>
+            <figure class="project-figure">
+                <a href="siem.jpg.png" class="lightbox-trigger" aria-label="Open screenshot in full view">
+                    <img src="siem.jpg.png" alt="Wazuh dashboard screenshot showing alerts and charts">
+                </a>
+                <figcaption>Wazuh Dashboard — alerts and visualization panels (screenshot: siem.jpg.png)</figcaption>
+            </figure>
+
+            <h3>🧰 Phase 6 — Reporting & Response</h3>
+            <p>Export alerts to CSV, document findings (failed logins, modified files, privilege escalation attempts) and recommend mitigations such as enforcing SSH lockouts, applying firewall rules, and patching suspicious binaries.</p>
+
+            <h3>🧩 Phase 7 — Outcome & Learning</h3>
+            <p>Results: Successfully deployed a functional SIEM on Ubuntu using Wazuh. Monitored endpoint activity, detected suspicious login attempts, configured real-time alerts and FIM. Skills demonstrated include SIEM configuration, Linux administration, log analysis, rule creation, FIM, and dashboard creation.</p>
+
+            <h3>💼 Project Summary</h3>
+            <p>Wazuh SIEM Implementation on Ubuntu — Configured and deployed Wazuh on a local Ubuntu host to monitor authentication, system, and integrity logs. Created custom alert rules for brute-force detection and unauthorized file changes; visualized security metrics using the Wazuh Dashboard integrated with Elasticsearch. Demonstrated capabilities in threat detection, incident response, and system hardening.</p>
+
+            <p><a class="contact-link" href="index.html">← Back to home</a></p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Favour Kehinde Madagu.</p>
+        <p>All rights reserved.</p>
+    </footer>
+    
+    <div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+        <img id="lightboxImage" src="" alt="">
+    </div>
+
+    <script>
+        (function(){
+            const triggers = document.querySelectorAll('.lightbox-trigger');
+            const overlay = document.getElementById('lightboxOverlay');
+            const lbImg = document.getElementById('lightboxImage');
+            const closeBtn = document.getElementById('lightboxClose');
+
+            function openLightbox(href, alt){
+                lbImg.src = href;
+                lbImg.alt = alt || '';
+                overlay.classList.add('open');
+                overlay.setAttribute('aria-hidden','false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox(){
+                overlay.classList.remove('open');
+                overlay.setAttribute('aria-hidden','true');
+                lbImg.src = '';
+                document.body.style.overflow = '';
+            }
+
+            triggers.forEach(t => {
+                t.addEventListener('click', e => {
+                    e.preventDefault();
+                    openLightbox(t.href, t.querySelector('img')?.alt);
+                });
+            });
+
+            overlay.addEventListener('click', e => {
+                if(e.target === overlay || e.target === closeBtn) closeLightbox();
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            document.addEventListener('keydown', e => {
+                if(e.key === 'Escape' && overlay.classList.contains('open')) closeLightbox();
+            });
+        })();
+    </script>
+</body>
+</html>

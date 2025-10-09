@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Phishing Defense — Empowering the Human Firewall</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="brand">
+                <h1>Phishing Defense: Empowering the Human Firewall</h1>
+                <p class="tagline">Module 1 — Understanding the Phishing Threat</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="card">
+            <h2>Module 1: Understanding the Phishing Threat</h2>
+
+            <h3>Goal</h3>
+            <p>To equip every employee with the skills to instantly recognize, analyze, and safely report a phishing attempt, making them the organization's first line of defense.</p>
+
+            <h3>1. What is Phishing?</h3>
+            <p>Phishing is a form of social engineering where an attacker attempts to trick you into clicking a malicious link, downloading a malicious file, or voluntarily giving up sensitive information (like passwords or credit card numbers).</p>
+            <p>It is named after the fishing technique: attackers throw out digital "bait" hoping someone "bites."</p>
+
+            <h4>Types of Phishing</h4>
+            <div class="table-responsive">
+                <table class="types-table" summary="Common phishing types and their descriptions">
+                    <thead>
+                        <tr><th>Type</th><th>Description</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Email Phishing</td><td>Broad, non-targeted attacks sent to millions of people (e.g., a fake prize notification).</td></tr>
+                        <tr><td>Spear Phishing</td><td>Highly targeted attacks aimed at specific individuals or companies (e.g., an email appearing to come from your CEO or HR department).</td></tr>
+                        <tr><td>Vishing</td><td>Voice Phishing. Uses phone calls (often automated) to trick users into giving information.</td></tr>
+                        <tr><td>Smishing</td><td>SMS Phishing. Uses text messages to deliver malicious links or numbers to call.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2. The Attacker's Playbook: Common Red Flags (TTPs)</h3>
+            <p>Phishing emails always follow a pattern designed to bypass your rational thought process. Learn to spot these Tactics, Techniques, and Procedures (TTPs):</p>
+
+            <h4>A. The Pressure Cooker (Urgency & Threat)</h4>
+            <p>Attackers thrive on panic. They create a false sense of urgency to make you act before you think.</p>
+            <p><strong>Red Flag:</strong> Phrases like "Immediate action required," "Your account will be suspended in 2 hours," or "Final warning before legal action."</p>
+            <p><strong>Defense:</strong> Legitimate organizations rarely use threats or unreasonable deadlines to communicate critical technical issues. If it feels urgent, pause and verify.</p>
+
+            <h4>B. The Identity Deception (Sender Spoofing)</h4>
+            <p>The "From" name might look familiar (like a colleague or vendor), but the technical details are wrong.</p>
+            <p><strong>Red Flag:</strong> The sender's display name is correct (e.g., "Accounting Dept"), but the underlying email address is gibberish, ends in a public domain (@gmail.com), or has a subtle typo (e.g., Micros0ft.com instead of Microsoft.com).</p>
+            <p><strong>Defense:</strong> Always check the full email address. On mobile devices, tap the sender's name to reveal the actual address.</p>
+
+            <h4>C. The Hidden Destination (Malicious Links)</h4>
+            <p>The text of the link might say "Click here for login portal," but the actual destination is a different, dangerous site.</p>
+            <p><strong>Red Flag:</strong> The link text looks like a legitimate domain, but when you hover your cursor over it, the pop-up address displayed at the bottom of the screen is completely different or contains suspicious characters.</p>
+            <p><strong>Defense:</strong> NEVER click a link if you haven't checked the destination first. On a touch screen, you can often "long-press" (press and hold) the link to preview the URL without navigating to it.</p>
+
+            <h4>D. The Unprofessional Look</h4>
+            <p>Phishing messages are often mass-produced and contain errors.</p>
+            <p><strong>Red Flag:</strong> Obvious spelling mistakes, poor grammar, weird formatting, or low-resolution logos.</p>
+            <p><strong>Defense:</strong> While professional phishing exists, look for consistent quality. If an email from a major bank looks like it was written quickly, it's likely a scam.</p>
+
+            <h3>3. The Defender's Playbook: Three Actionable Steps</h3>
+            <p>If a message is suspicious, follow these three steps in order:</p>
+            <h4>Stop and Hover</h4>
+            <p>Do NOT click any links or open any attachments.</p>
+            <p>Hover your mouse over the sender's name and all links to inspect the true destination and email address.</p>
+
+            <h4>Verify Out-of-Band (The Golden Rule)</h4>
+            <p>If the email is requesting an action (like a wire transfer, password change, or urgent file download), you must verify the request using a communication channel separate from the email itself.</p>
+            <p>Do this: Call the person or department using a known, pre-saved phone number from the company directory—not a number provided in the suspicious email.</p>
+
+            <h4>Report Immediately</h4>
+            <p>Use the official company-provided "Report Phishing" button or follow the internal security procedure.</p>
+            <p>Reporting the email allows the security team to investigate and remove the threat from other users' inboxes.</p>
+
+            <h3>Crucial Warning</h3>
+            <p>If you accidentally enter your credentials on a malicious page, immediately change your password on the legitimate site and report the incident to the security team without delay.</p>
+
+            <!-- Interactive quiz for Module 1 -->
+            <section id="quiz" class="card">
+                <h3 id="quizTitle">Quick quiz — test your knowledge</h3>
+                <form id="phishQuiz" class="quiz-form" aria-labelledby="quizTitle">
+                    <div class="quiz-question" data-answer="a" id="q1">
+                        <p class="q"><strong>1.</strong> What is phishing?</p>
+                        <label><input type="radio" name="q1" value="a"> A form of social engineering designed to trick users into revealing sensitive information.</label>
+                        <label><input type="radio" name="q1" value="b"> A method of encrypting files to protect data.</label>
+                        <label><input type="radio" name="q1" value="c"> A scheduled software update process.</label>
+                        <div class="explanation" aria-live="polite"></div>
+                    </div>
+
+                    <div class="quiz-question" data-answer="a" id="q2">
+                        <p class="q"><strong>2.</strong> Which of the following is a common red flag (TTP) in phishing messages?</p>
+                        <label><input type="radio" name="q2" value="a"> A friendly greeting from a known colleague with no urgent request.</label>
+                        <label><input type="radio" name="q2" value="b"> A sudden urgent demand or threat (e.g., "Act now or your account will be closed").</label>
+                        <label><input type="radio" name="q2" value="c"> A long, detailed explanation including official-looking headers.</label>
+                        <div class="explanation" aria-live="polite"></div>
+                    </div>
+
+                    <div class="quiz-question" data-answer="a" id="q3">
+                        <p class="q"><strong>3.</strong> What is the first defensive step you should take when you suspect a message is phishing?</p>
+                        <label><input type="radio" name="q3" value="a"> Stop and hover — do not click links or open attachments; inspect sender and links.</label>
+                        <label><input type="radio" name="q3" value="b"> Immediately call the phone number provided inside the suspicious message.</label>
+                        <label><input type="radio" name="q3" value="c"> Reply to the email asking for confirmation.</label>
+                        <div class="explanation" aria-live="polite"></div>
+                    </div>
+
+                    <div class="quiz-question" data-answer="c" id="q4">
+                        <p class="q"><strong>4.</strong> What is vishing?</p>
+                        <label><input type="radio" name="q4" value="a"> Phishing via SMS messages.</label>
+                        <label><input type="radio" name="q4" value="b"> Phishing through social media platforms.</label>
+                        <label><input type="radio" name="q4" value="c"> Voice phishing using phone calls to extract information.</label>
+                        <div class="explanation" aria-live="polite"></div>
+                    </div>
+
+                    <div class="quiz-actions">
+                        <button id="quizSubmit" type="submit" class="contact-link">Submit answers</button>
+                        <button id="quizReset" type="button">Try again</button>
+                    </div>
+
+                    <div id="quizResult" role="status" aria-live="polite"></div>
+                </form>
+            </section>
+
+            <p><a class="contact-link" href="index.html">← Back to home</a></p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Favour Kehinde Madagu.</p>
+        <p>All rights reserved.</p>
+    </footer>
+    <script>
+        (function(){
+            const form = document.getElementById('phishQuiz');
+            const resultEl = document.getElementById('quizResult');
+            const resetBtn = document.getElementById('quizReset');
+
+            function gradeQuiz(e){
+                e.preventDefault();
+                const questions = form.querySelectorAll('.quiz-question');
+                let correct = 0;
+                questions.forEach(q => {
+                    const name = q.id;
+                    const answer = q.dataset.answer;
+                    const selected = form.querySelector(`input[name="${name}"]:checked`);
+                    const explanation = q.querySelector('.explanation');
+                    if(selected && selected.value === answer){
+                        correct += 1;
+                        explanation.textContent = 'Correct ✓';
+                        explanation.style.color = 'green';
+                    } else {
+                        explanation.textContent = 'Incorrect ✗ — review the guidance above.';
+                        explanation.style.color = 'crimson';
+                    }
+                });
+                resultEl.textContent = `You answered ${correct} of ${questions.length} correctly.`;
+            }
+
+            function resetQuiz(){
+                form.reset();
+                form.querySelectorAll('.explanation').forEach(el=>{el.textContent='';el.style.color=''});
+                resultEl.textContent = '';
+            }
+
+            form.addEventListener('submit', gradeQuiz);
+            resetBtn.addEventListener('click', resetQuiz);
+        })();
+    </script>
+</body>
+</html>
