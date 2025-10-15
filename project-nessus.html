@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nessus Vulnerability Assessment — Project Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="brand">
+                <h1>Nessus Vulnerability Assessment</h1>
+                <p class="tagline">Vulnerability scanning, prioritization, and mitigation</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="card">
+            <h2>Vulnerability Assessment — Nessus Essentials</h2>
+
+            <h4>Tools</h4>
+            <p class="muted">Nessus Essentials, VMware Workstation, Windows 10 VM, Kali Linux</p>
+
+            <h4>Overview</h4>
+            <p>Conducted a vulnerability assessment using Nessus Essentials to identify and evaluate security weaknesses within a controlled virtual network environment. The project simulated a real-world vulnerability management process to enhance understanding of network security posture and remediation strategies.</p>
+
+            <h4>Objectives</h4>
+            <ul>
+                <li>Learn to configure and operate Nessus Essentials for vulnerability scanning.</li>
+                <li>Identify high-risk vulnerabilities and misconfigurations in a target system.</li>
+                <li>Analyze scan results and recommend remediation actions based on severity.</li>
+            </ul>
+
+            <h4>Process</h4>
+            <ol>
+                <li>Installed Nessus Essentials on a host machine and activated it with Tenable's free license.</li>
+                <li>Configured a Windows 10 virtual machine as the target using VMware Workstation.</li>
+                <li>Verified connectivity between host and target with ICMP and Nmap scans.</li>
+                <li>Created a Basic Network Scan profile in Nessus and defined the target IP address.</li>
+                <li>Executed the scan and reviewed discovered vulnerabilities across ports and services.</li>
+                <li>Exported the report in PDF format and summarized critical vulnerabilities with remediation steps.</li>
+            </ol>
+
+            <h4>Key Findings</h4>
+            <ul>
+                <li>Detected outdated Apache HTTP Server with multiple CVEs.</li>
+                <li>Identified SMBv1 protocol still enabled — vulnerable to ransomware attacks.</li>
+                <li>Found weak administrative credentials accessible over network services.</li>
+            </ul>
+
+            <h4>Remediation Recommendations</h4>
+            <ul>
+                <li>Apply latest software patches for all detected CVEs.</li>
+                <li>Disable SMBv1 and enforce SMBv2 or SMBv3 where possible.</li>
+                <li>Implement strong password policies and remove default credentials.</li>
+            </ul>
+
+            <h4>Skills Demonstrated</h4>
+            <ul>
+                <li>Vulnerability Scanning &amp; Analysis</li>
+                <li>Security Configuration Management</li>
+                <li>Network &amp; Host-based Security</li>
+                <li>Report Writing and Risk Assessment</li>
+                <li>Understanding of CVSS Scores and CVE databases</li>
+            </ul>
+
+            <h4>Outcome</h4>
+            <p>Successfully identified, documented, and proposed mitigations for multiple system vulnerabilities using Nessus Essentials. The project reinforced practical experience in vulnerability management and threat prioritization, aligning with real-world cybersecurity operations.</p>
+
+            <h4>Results (screenshot)</h4>
+            <figure class="project-figure">
+                <a href="nessus.png" class="lightbox-trigger" aria-label="Open Nessus screenshot in full view">
+                    <img src="nessus.png" alt="Nessus results screenshot">
+                </a>
+                <figcaption>Nessus Essentials — scan summary and selected vulnerability details (nessus.png)</figcaption>
+            </figure>
+
+            <p><a class="contact-link" href="index.html">← Back to home</a></p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Favour Kehinde Madagu.</p>
+        <p>All rights reserved.</p>
+    </footer>
+    
+    <div class="lightbox-overlay" id="lightboxOverlay" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+        <img id="lightboxImage" src="" alt="">
+    </div>
+
+    <script>
+        (function(){
+            const triggers = document.querySelectorAll('.lightbox-trigger');
+            const overlay = document.getElementById('lightboxOverlay');
+            const lbImg = document.getElementById('lightboxImage');
+            const closeBtn = document.getElementById('lightboxClose');
+
+            function openLightbox(href, alt){
+                lbImg.src = href;
+                lbImg.alt = alt || '';
+                overlay.classList.add('open');
+                overlay.setAttribute('aria-hidden','false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox(){
+                overlay.classList.remove('open');
+                overlay.setAttribute('aria-hidden','true');
+                lbImg.src = '';
+                document.body.style.overflow = '';
+            }
+
+            triggers.forEach(t => {
+                t.addEventListener('click', e => {
+                    e.preventDefault();
+                    var imgEl = t.querySelector('img');
+                    var alt = imgEl ? imgEl.alt : '';
+                    openLightbox(t.href, alt);
+                });
+            });
+
+            overlay.addEventListener('click', e => {
+                if(e.target === overlay || e.target === closeBtn) closeLightbox();
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            document.addEventListener('keydown', e => {
+                if(e.key === 'Escape' && overlay.classList.contains('open')) closeLightbox();
+            });
+        })();
+    </script>
+</body>
+</html>

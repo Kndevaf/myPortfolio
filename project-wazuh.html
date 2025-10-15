@@ -36,7 +36,7 @@
             </ul>
 
             <h4>Technologies</h4>
-            <p class="muted">Wazuh, Powershell, Ubuntu</p>
+            <p class="muted">Wazuh, PowerShell, Ubuntu</p>
 
             <h3>🎯 Objective</h3>
             <p>To implement and configure a Security Information and Event Management (SIEM) solution using Wazuh on Ubuntu to monitor system logs, detect security threats, and perform real-time alerting. The project focuses on endpoint security, log analysis, and incident response.</p>
@@ -169,7 +169,9 @@ sudo systemctl start wazuh-agent</code></pre>
             triggers.forEach(t => {
                 t.addEventListener('click', e => {
                     e.preventDefault();
-                    openLightbox(t.href, t.querySelector('img')?.alt);
+                    var imgEl = t.querySelector('img');
+                    var alt = imgEl ? imgEl.alt : '';
+                    openLightbox(t.href, alt);
                 });
             });
 

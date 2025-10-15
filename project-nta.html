@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Network Traffic Analysis — Spotify Connect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>Network Traffic Analysis (NTA) — Spotify Connect</h1>
+        <p class="tagline">Wireshark capture and step-by-step analysis</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h2>Performing Network Traffic Analysis: Spotify Connect</h2>
+
+      <h3>Tools</h3>
+      <p class="muted">Wireshark, a packet capture on the network where Spotify Connect devices are used (mobile device + speaker). Optional: tshark, tcpdump for CLI captures.</p>
+
+      <h3>Overview</h3>
+      <p>Captured network traffic while initiating Spotify Connect sessions to observe device discovery (mDNS/SSDP), authentication/control messages, and media streaming (often over HTTPS with encrypted payloads). The goal is to identify protocols used, endpoints contacted, and timing patterns relevant for device pairing and playback commands.</p>
+
+      <h3>Objectives</h3>
+      <ul>
+        <li>Understand how Spotify Connect discovers and controls devices on the local network.</li>
+        <li>Capture and analyze control messages, discovery broadcasts, and streaming endpoints.</li>
+        <li>Document useful indicators for network monitoring and device identification.</li>
+      </ul>
+
+      <h3>Step-by-step capture & analysis</h3>
+      <ol>
+        <li>Start Wireshark and select the correct network interface (the one your device and speaker are on).</li>
+        <li>Begin capture before initiating Spotify Connect on the mobile device.</li>
+        <li>Filter for discovery protocols: <code>mdns || ssdp || arp</code> to observe device discovery packets.</li>
+        <li>Look for mDNS records ("_spotify-connect._tcp.local") and service TXT records that include device identifiers and port numbers.</li>
+        <li>Apply a filter for TCP/UDP flows to/from the discovered device IP (e.g., <code>ip.addr == 192.168.1.42</code>), then inspect packet details to find control messages and HTTP(S) endpoints.</li>
+        <li>Use Wireshark's Follow TCP Stream on candidate control connections to read request/response headers (note encrypted payloads for HTTPS streams).</li>
+        <li>Observe timing and sequence when starting playback: pairing/command messages are sent first, then media-related connections are initiated.</li>
+        <li>Export key packets and create a timeline of events (device discovery → control → media streaming).</li>
+      </ol>
+
+      <h3>Findings</h3>
+      <ul>
+        <li>Spotify Connect uses mDNS for local device discovery and advertises services like <code>_spotify-connect._tcp.local</code>.</li>
+        <li>Control channels use HTTPS to remote endpoints for authentication/authorization and local control commands use service endpoints and ports advertised via mDNS.</li>
+        <li>Media streaming connections are typically encrypted and directed to CDN or streaming endpoints, revealing IPs but not payloads.</li>
+      </ul>
+
+      <h3>Results (screenshot)</h3>
+      <figure class="project-figure">
+        <a href="wireshark.png" class="lightbox-trigger" aria-label="Open Wireshark screenshot">
+          <img src="wireshark.png" alt="Wireshark capture showing mDNS and Spotify packets">
+        </a>
+        <figcaption>Wireshark capture highlighting mDNS discovery and a follow-TCP-stream of a control session (wireshark.png)</figcaption>
+      </figure>
+
+      <h3>How I can help with this project</h3>
+      <ul>
+        <li>I can annotate the key packets with notes and timestamps for teaching or reporting.</li>
+        <li>I can generate a printable timeline and a short summary table of observed IPs and services.</li>
+        <li>I can add detection rules (Snort/Suricata or Zeek signatures) to flag Spotify Connect discovery and suspicious streaming endpoints.</li>
+      </ul>
+
+      <p><a class="contact-link" href="index.html">← Back to home</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Favour Kehinde Madagu.</p>
+    <p>All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

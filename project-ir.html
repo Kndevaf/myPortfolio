@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>IR Playbook — Ransomware Event</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="brand">
+        <h1>Incident Response (IR) Playbook: Ransomware Event</h1>
+        <p class="tagline">Author: Favour Kehinde Madagu — Cybersecurity Student & Analyst-in-Training</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h2>Incident Response Playbook — Ransomware Event</h2>
+
+      <h3>Author & Metadata</h3>
+      <p><strong>Author:</strong> Favour Kehinde Madagu<br>
+      <strong>Role:</strong> Cybersecurity Student & Analyst-in-Training<br>
+      <strong>Version:</strong> 1.0<br>
+      <strong>Date:</strong> October 10, 2025</p>
+
+      <h3>1. Document Overview</h3>
+      <p><strong>Purpose:</strong> This playbook outlines a structured and practical approach to responding to a ransomware attack in an academic or simulated cybersecurity environment.</p>
+      <p><strong>Scope:</strong> Applicable to all student lab environments, academic networks, and virtual systems used for cybersecurity training and research.</p>
+      <p><strong>Owner:</strong> Favour Kehinde Madagu – Cybersecurity Student, Towson University</p>
+
+      <h3>2. Incident Overview</h3>
+      <table class="types-table">
+        <tbody>
+          <tr><th>Field</th><th>Description</th></tr>
+          <tr><td>Incident Name</td><td>Ransomware Event – Academic Network Simulation</td></tr>
+          <tr><td>Incident ID</td><td>IR-2025-001</td></tr>
+          <tr><td>Date/Time Detected</td><td>2025-10-20 22:54</td></tr>
+          <tr><td>Detected By</td><td>Security Monitoring System / Lab SIEM</td></tr>
+          <tr><td>Reported To</td><td>Student IR Team / Instructor</td></tr>
+          <tr><td>Severity Level</td><td>Critical</td></tr>
+          <tr><td>Status</td><td>Ongoing / Contained / Resolved</td></tr>
+        </tbody>
+      </table>
+
+      <h3>3. Ransomware Indicators</h3>
+      <ul>
+        <li>Files renamed or encrypted with new extensions (e.g., .crypt, .locky).</li>
+        <li>Presence of ransom notes or payment instructions.</li>
+        <li>Unusual CPU or disk usage.</li>
+        <li>Security tools disabled unexpectedly.</li>
+        <li>Outbound traffic to suspicious IPs or servers.</li>
+      </ul>
+
+      <h3>4. Roles and Responsibilities</h3>
+      <table class="types-table">
+        <thead><tr><th>Role</th><th>Responsibility</th></tr></thead>
+        <tbody>
+          <tr><td>Incident Commander (Student Lead)</td><td>Oversees incident handling, coordinates communication, and documentation.</td></tr>
+          <tr><td>SOC Analyst (Student)</td><td>Reviews alerts, validates IOCs, and identifies affected systems.</td></tr>
+          <tr><td>System Administrator (Student)</td><td>Isolates infected machines, restores clean backups.</td></tr>
+          <tr><td>Network Analyst (Student)</td><td>Blocks malicious IPs, monitors network traffic.</td></tr>
+          <tr><td>Faculty Advisor / Instructor</td><td>Provides guidance and ensures academic compliance.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>5. Incident Response Phases</h3>
+      <h4>Phase 1 – Preparation</h4>
+      <ul>
+        <li>Maintain secure and verified backups of lab data.</li>
+        <li>Ensure endpoint detection and SIEM tools are active and up to date.</li>
+        <li>Conduct cyber hygiene and awareness training.</li>
+        <li>Maintain an updated incident contact list.</li>
+        <li>Use isolated virtual environments for malware testing.</li>
+      </ul>
+
+      <h4>Phase 2 – Identification</h4>
+      <ul>
+        <li>Detect suspicious behavior through alerts, logs, or user reports.</li>
+        <li>Confirm ransomware indicators.</li>
+        <li>Record affected systems, accounts, and timestamps.</li>
+        <li>Classify the event as a ransomware incident.</li>
+        <li>Begin evidence collection (system logs, memory dumps).</li>
+        <li><strong>Tools:</strong> Splunk, Wireshark, Sysinternals Suite.</li>
+      </ul>
+
+      <h4>Phase 3 – Containment</h4>
+      <h5>Short-Term Actions:</h5>
+      <ul>
+        <li>Disconnect infected systems from the network.</li>
+        <li>Disable file sharing and remote desktop services.</li>
+        <li>Change passwords for impacted accounts.</li>
+      </ul>
+      <h5>Long-Term Actions:</h5>
+      <ul>
+        <li>Segment the network to prevent spread.</li>
+        <li>Monitor traffic for recurring encryption signatures.</li>
+        <li>Preserve forensic data for post-incident review.</li>
+      </ul>
+
+      <h4>Phase 4 – Eradication</h4>
+      <ul>
+        <li>Identify and delete malicious files and registry keys.</li>
+        <li>Patch vulnerabilities and update security software.</li>
+        <li>Reimage or reset compromised systems.</li>
+        <li>Verify system health before reconnecting to the lab network.</li>
+      </ul>
+
+      <h4>Phase 5 – Recovery</h4>
+      <ul>
+        <li>Restore clean backups and verify file integrity.</li>
+        <li>Re-enable lab services gradually.</li>
+        <li>Monitor for signs of re-infection.</li>
+        <li>Document system restoration steps for future reference.</li>
+      </ul>
+
+      <h4>Phase 6 – Lessons Learned</h4>
+      <ul>
+        <li>Conduct a post-incident debrief with the student IR team.</li>
+        <li>Document the incident timeline, containment actions, and results.</li>
+        <li>Identify improvements for detection and response efficiency.</li>
+        <li>Update training materials and procedures.</li>
+        <li>Present a summary report to the instructor or cybersecurity lab coordinator.</li>
+      </ul>
+
+      <h3>6. Communication Plan</h3>
+      <table class="types-table">
+        <thead><tr><th>Audience</th><th>Channel</th><th>Content</th><th>Responsible</th></tr></thead>
+        <tbody>
+          <tr><td>Student IR Team</td><td>Email / Secure Chat</td><td>Technical updates</td><td>Student Lead</td></tr>
+          <tr><td>Instructor / Faculty Advisor</td><td>Report</td><td>Summary of incident and recovery</td><td>Student Lead</td></tr>
+          <tr><td>Other Students (if applicable)</td><td>Class Announcement</td><td>Awareness and prevention tips</td><td>Instructor</td></tr>
+        </tbody>
+      </table>
+
+      <h3>7. Ransom Payment Policy</h3>
+      <p>Policy: Ransom payments are strictly prohibited in academic or training environments. The focus should be on analysis, containment, and restoration from clean backups. Students should explore open-source decryption tools for research (e.g., NoMoreRansom.org).</p>
+
+      <h3>8. Metrics & Reporting</h3>
+      <table class="types-table">
+        <thead><tr><th>Metric</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Time to Detect (TTD)</td><td>Time between initial infection and alert detection.</td></tr>
+          <tr><td>Time to Contain (TTC)</td><td>Time from detection to isolation of affected systems.</td></tr>
+          <tr><td>Time to Recover (TTR)</td><td>Duration between containment and full restoration.</td></tr>
+          <tr><td>Data Impact</td><td>Amount of lost, encrypted, or restored data.</td></tr>
+        </tbody>
+      </table>
+
+      <h3>9. References</h3>
+      <ul>
+        <li>NIST SP 800-61 Rev. 2 – Computer Security Incident Handling Guide</li>
+        <li>CISA – Ransomware Response Checklist</li>
+        <li>SANS – Incident Handler’s Handbook</li>
+        <li>MITRE ATT&CK Framework – Ransomware Techniques & Mitigation</li>
+      </ul>
+
+      <h3>10. Appendices</h3>
+      <ul>
+        <li>Appendix A: Student IR Team Contact List</li>
+        <li>Appendix B: Backup and Recovery Procedure</li>
+        <li>Appendix C: Forensic Imaging Checklist</li>
+        <li>Appendix D: Post-Incident Review Template</li>
+      </ul>
+
+      
+
+      <p><a class="contact-link" href="index.html">← Back to home</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Favour Kehinde Madagu.</p>
+    <p>All rights reserved.</p>
+  </footer>
+</body>
+</html>
