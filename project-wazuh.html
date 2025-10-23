@@ -21,7 +21,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header>
         <div class="container header-inner">
             <div class="brand">
-                <h1>🧠 Endpoint Threat Monitoring — Wazuh on Ubuntu</h1>
+                <h1>Endpoint Threat Monitoring — Wazuh on Ubuntu</h1>
                 <p class="tagline">Wazuh SIEM implementation and incident detection</p>
             </div>
             <nav>
@@ -49,10 +49,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h4>Technologies</h4>
             <p class="muted">Wazuh, PowerShell, Ubuntu</p>
 
-            <h3>🎯 Objective</h3>
+            <h3>Objective</h3>
             <p>To implement and configure a Security Information and Event Management (SIEM) solution using Wazuh on Ubuntu to monitor system logs, detect security threats, and perform real-time alerting. The project focuses on endpoint security, log analysis, and incident response.</p>
 
-            <h3>🧩 Project Environment</h3>
+            <h3>Project Environment</h3>
             <table>
                 <tbody>
                     <tr><th>Host System</th><td>Ubuntu (host machine)</td></tr>
@@ -64,7 +64,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </tbody>
             </table>
 
-            <h3>⚙️ Phase 1 — Installation & Setup</h3>
+            <h3>Phase 1 — Installation & Setup</h3>
             <ol>
                 <li>Install dependencies
                     <pre><code>sudo apt update && sudo apt upgrade -y
@@ -89,7 +89,7 @@ sudo systemctl start wazuh-dashboard</code></pre>
                 <li>Access dashboard in browser: <code>https://&lt;your-ip&gt;:5601</code> (default admin/admin — change after setup)</li>
             </ol>
 
-            <h3>🔍 Phase 2 — Configure Wazuh Agent (Host Monitoring)</h3>
+            <h3>Phase 2 — Configure Wazuh Agent (Host Monitoring)</h3>
             <p>Since the manager and agent run on the same host, install and configure the agent:</p>
             <pre><code>sudo apt install wazuh-agent -y
 sudo nano /var/ossec/etc/ossec.conf
@@ -102,7 +102,7 @@ sudo nano /var/ossec/etc/ossec.conf
 sudo systemctl enable wazuh-agent
 sudo systemctl start wazuh-agent</code></pre>
 
-            <h3>🧾 Phase 3 — Log Collection & Analysis</h3>
+            <h3>Phase 3 — Log Collection & Analysis</h3>
             <p>Wazuh will parse and analyze common logs such as:</p>
             <ul>
                 <li>/var/log/auth.log — authentication attempts</li>
@@ -111,7 +111,7 @@ sudo systemctl start wazuh-agent</code></pre>
                 <li>/var/log/ufw.log — firewall logs (if enabled)</li>
             </ul>
 
-            <h3>🚨 Phase 4 — Threat Detection Rules & Alerts</h3>
+            <h3>Phase 4 — Threat Detection Rules & Alerts</h3>
             <h4>A. Brute Force Detection</h4>
             <p>Test by generating failed SSH logins: <code>ssh invalid@localhost</code>. Wazuh rule example: multiple failed login rule (high severity).</p>
 
@@ -121,10 +121,10 @@ sudo systemctl start wazuh-agent</code></pre>
             <h4>C. Rootkit & Malware Detection</h4>
             <p>Enable rootcheck to monitor for hidden processes and suspicious binaries.</p>
 
-            <h3>📊 Phase 5 — Dashboard & Visualization</h3>
+            <h3>Phase 5 — Dashboard & Visualization</h3>
             <p>Use the Wazuh Dashboard (Kibana) to view alerts, FIM events, authentication trends, and to build visual panels for common metrics (top alert sources, failed logins, file changes).</p>
 
-            <h3>📸 Results (example screenshot)</h3>
+            <h3>Results (example screenshot)</h3>
             <figure class="project-figure">
                 <a href="siem.jpg.png" class="lightbox-trigger" aria-label="Open screenshot in full view">
                     <img src="siem.jpg.png" alt="Wazuh dashboard screenshot showing alerts and charts">
@@ -132,13 +132,13 @@ sudo systemctl start wazuh-agent</code></pre>
                 <figcaption>Wazuh Dashboard — alerts and visualization panels (screenshot: siem.jpg.png)</figcaption>
             </figure>
 
-            <h3>🧰 Phase 6 — Reporting & Response</h3>
+            <h3>Phase 6 — Reporting & Response</h3>
             <p>Export alerts to CSV, document findings (failed logins, modified files, privilege escalation attempts) and recommend mitigations such as enforcing SSH lockouts, applying firewall rules, and patching suspicious binaries.</p>
 
-            <h3>🧩 Phase 7 — Outcome & Learning</h3>
+            <h3>Phase 7 — Outcome & Learning</h3>
             <p>Results: Successfully deployed a functional SIEM on Ubuntu using Wazuh. Monitored endpoint activity, detected suspicious login attempts, configured real-time alerts and FIM. Skills demonstrated include SIEM configuration, Linux administration, log analysis, rule creation, FIM, and dashboard creation.</p>
 
-            <h3>💼 Project Summary</h3>
+            <h3>Project Summary</h3>
             <p>Wazuh SIEM Implementation on Ubuntu — Configured and deployed Wazuh on a local Ubuntu host to monitor authentication, system, and integrity logs. Created custom alert rules for brute-force detection and unauthorized file changes; visualized security metrics using the Wazuh Dashboard integrated with Elasticsearch. Demonstrated capabilities in threat detection, incident response, and system hardening.</p>
 
             <p><a class="contact-link" href="index.html">← Back to home</a></p>
@@ -200,3 +200,4 @@ sudo systemctl start wazuh-agent</code></pre>
 </body>
 
 </html>
+
