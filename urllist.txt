@@ -1,0 +1,9 @@
+https://kndevaf.github.io/myPortfolio/
+https://kndevaf.github.io/myPortfolio/project-wazuh.html
+https://kndevaf.github.io/myPortfolio/project-nessus.html
+https://kndevaf.github.io/myPortfolio/project-phishing.html
+https://kndevaf.github.io/myPortfolio/project-hci.html
+https://kndevaf.github.io/myPortfolio/project-ir.html
+https://kndevaf.github.io/myPortfolio/project-nta.html
+https://kndevaf.github.io/myPortfolio/project-gtm.html
+https://kndevaf.github.io/myPortfolio/index.html
