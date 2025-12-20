@@ -18,13 +18,13 @@ Clean, simple UI focused on clarity and accessibility
 
 **Technologies Used**
 
-HTML5
+- HTML5
 
-CSS3
+- CSS3
 
-Javascript
+- Javascript
 
-Git & GitHub
+- Git & GitHub
 
 GitHub Pages for deployment
 
@@ -60,4 +60,5 @@ Professional layout suitable for recruiters and employers
 
  **Certifications Displayed**
 
-CompTIA Security+ (SY0-701)
+-CompTIA Security+ (SY0-701)
+
